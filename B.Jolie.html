@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commande Africain</title>
+    <link rel="stylesheet" href="style.Home.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head> 
+<style>
+    .hero {
+    position: relative;
+    text-align: center;
+    color: #fff;
+    padding: 100px 0;
+    background-image: url('image/Phomme/Jolie.Jolie/Background/Background.1.jpg');
+    background-size: cover;
+    background-position: center;
+}
+.featured-products .card {
+    margin-bottom: 30px;
+    border: 2px solid #919191;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: transform 0.2s ease; /* Animation de transition pour le hover */
+}
+
+.featured-products .card.promo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-width: 0 80px 80px 0;
+    border-style: solid;
+    border-color: #00dabd transparent transparent transparent;
+}
+
+.featured-products .card:hover h5 {
+    color: #00cece; /* Changement de couleur sur hover */
+}
+
+/* Light animation */
+.background-lights {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    background: linear-gradient(-45deg, rgb(66, 141, 255), rgb(241, 241, 241), rgb(16, 255, 243));
+    background-size: 400% 400%;
+    animation: backgroundAnimation 10s ease infinite;
+}
+@keyframes backgroundAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+#cart-section {
+        margin-top: 50px;
+        padding: 20px;
+        border: 1px solid #42ffef;
+        border-radius: 10px;
+        background-color: #b2b6b6;
+    }
+    #cart-items {
+        max-height: 300px;
+        overflow-y: auto;
+        margin-bottom: 20px;
+    }
+    .cart-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+    }
+    .cart-item h6 {
+        margin: 0;
+        flex: 1;
+    }
+    .cart-item .item-quantity {
+        width: 60px;
+        text-align: center;
+    }
+    .cart-item .item-remove {
+        color: red;
+        cursor: pointer;
+    }
+    .cart-total {
+        text-align: right;
+        font-weight: bold;
+    }
+</style>
+<body>
+    <header>
+        <h2><datagrid>Boutique Jolie Jolie</datagrid></h2>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="recherche un produit"> <!-- Correction de l'ID -->
+            <ul id="search-results"></ul>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Bienvenu</h2>
+            <p>Découvrez notre large sélection de complet à prix abordable</p>
+            <a href="#cart" class="btn btn-primary">Contacter</a>
+        </div>
+    </section>
+
+    <section class="featured-products">
+        <div class="background-lights"></div>
+        <h2>Nos Complets</h2>
+        <div class="container">
+            <div class="row" style="width: 320px; margin-left: auto; margin-right: auto;">
+                <div class="col-md-4"></div>
+                    <div class="card promo" style="width: 320px; margin-left: auto; margin-right: auto;">
+                        <img class="card-img-top" src="image/Phomme/Jolie.Jolie/Complet/N1.jpg" alt="frite">
+                        <div class="card-body">
+                            <h5 class="card-title">Complet bleu ciel N1</h5>
+                            <p class="card-text">Prix : 6000 franc CFA</p>
+                                <button class="btn btn-primary add-to-cart" data-title="Complet bleu ciel" data-price="6000">Ajouter au panier</button>
+                        </div>
+                    </div>
+            <div class="col-md-4"></div>
+                <div class="card promo" style="width: 320px; margin-left: auto; margin-right: auto;">
+                    <span class="promo-label" style="background-color: red; color: black;">PROMO</span> <!-- Étiquette Promo -->
+                    <img class="card-img-top" src="image/Phomme/Jolie.Jolie/Complet/N2.jpg" alt="Produit 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Complet Noir N1</h5>
+                        <p class="card-text">Prix : <del>6.000 CFA</del> <span class="promo2">5.000 CFA</span></p>
+                            <button class="btn btn-primary add-to-cart" data-title="Complet Noir N1" data-price="6000">Ajouter au panier</button>
+                    
+                    </div>
+                </div>
+            <div class="col-md-4"></div>
+                <div class="card promo" style="width: 320px; margin-left: auto; margin-right: auto;">
+                    <img class="card-img-top" src="image/Phomme/Jolie.Jolie/Complet/N3.jpg" alt="Produit 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Complet Vert N1</h5>
+                        <p class="card-text">Prix : 6000 franc CFA</p>
+                            <button class="btn btn-primary add-to-cart" data-title="Complet Vert N1" data-price="6000">Ajouter au panier</button>
+                    
+                    </div>
+                </div>
+            <div class="col-md-4"></div>
+                <div class="card promo" style="width: 320px; margin-left: auto; margin-right: auto;">
+                    <img class="card-img-top" src="image/Phomme/Jolie.Jolie/Complet/N4.jpg" alt="Produit 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Complet Gris N1</h5>
+                        <p class="card-text">Prix : 6000 franc CFA</p>
+                            <button class="btn btn-primary add-to-cart" data-title="Complet Gris N1" data-price="6000">Ajouter au panier</button>
+                    
+                    </div>
+                </div>
+            <div class="col-md-4"></div>
+                <div class="card promo" style="width: 320px; margin-left: auto; margin-right: auto;">
+                    <img class="card-img-top" src="image/Phomme/Jolie.Jolie/Complet/N5.jpg" alt="Produit 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Complet Blanc & Noir N1</h5>
+                        <p class="card-text">Prix : 6000 franc CFA</p>
+                            <button class="btn btn-primary add-to-cart" data-title="Complet Blanc N1" data-price="6000">Ajouter au panier</button>
+                    
+                    </div>
+                </div>
+            <div class="col-md-4"></div>
+                <div class="card promo" style="width: 320px; margin-left: auto; margin-right: auto;">
+                    <span class="promo-label" style="background-color: red; color: black;">PROMO</span> <!-- Étiquette Promo -->
+                    <img class="card-img-top" src="image/Phomme/Jolie.Jolie/Complet/N6.jpg" alt="Produit 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Complet Vert tricolor</h5>
+                        <p class="card-text">Prix : <del>6.000 CFA</del> <span class="promo2">5.000 CFA</span></p>
+                            <button class="btn btn-primary add-to-cart" data-title="Complet Vert tricolor" data-price="5000">Ajouter au panier</button>
+                    
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+                <div class="card promo" style="width: 320px; margin-left: auto; margin-right: auto;">
+                    <img class="card-img-top" src="image/Phomme/Jolie.Jolie/Complet/N7.jpg" alt="Produit 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Complet Bleu & Gris</h5>
+                        <p class="card-text">Prix : 6000 franc CFA</p>
+                            <button class="btn btn-primary add-to-cart" data-title="Complet Bleu & Gris" data-price="6000">Ajouter au panier</button>
+                    
+                    </div>
+                </div> 
+            </div>           
+            <div class="col-md-4"></div>
+                <div class="card promo" style="width: 320px; margin-left: auto; margin-right: auto;">
+                    <img class="card-img-top" src="image/Phomme/Jolie.Jolie/Complet/N8.jpg" alt="Produit 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Complet Bleu tricolor</h5>
+                        <p class="card-text">Prix : 6000 franc CFA</p>
+                            <button class="btn btn-primary add-to-cart" data-title="Complet Bleu tricolor" data-price="6000">Ajouter au panier</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+                <div class="card promo" style="width: 320px; margin-left: auto; margin-right: auto;">
+                    <img class="card-img-top" src="image/Phomme/Jolie.Jolie/Complet/N9.jpg" alt="Produit 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Complet Beige N1</h5>
+                        <p class="card-text">Prix : 6000 franc CFA</p>
+                            <button class="btn btn-primary add-to-cart" data-title="Complet Beige N1" data-price="6000">Ajouter au panier</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+                <div class="card promo" style="width: 320px; margin-left: auto; margin-right: auto;">
+                    <img class="card-img-top" src="image/Phomme/Jolie.Jolie/Complet/N10.jpg" alt="Produit 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Complet Bleu clair N1</h5>
+                        <p class="card-text">Prix : 6000 franc CFA</p>
+                            <button class="btn btn-primary add-to-cart" data-title="Complet Bleu claire N1" data-price="6000">Ajouter au panier</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+                <div class="card promo" style="width: 320px; margin-left: auto; margin-right: auto;">
+                    <img class="card-img-top" src="image/Phomme/Jolie.Jolie/Complet/N11.jpg" alt="Produit 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Complet Bleu & Blanc</h5>
+                        <p class="card-text">Prix : 6000 franc CFA</p>
+                            <button class="btn btn-primary add-to-cart" data-title="Complet Bleu & Blanc" data-price="6000">Ajouter au panier</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+                <div class="card promo" style="width: 320px; margin-left: auto; margin-right: auto;">
+                    <img class="card-img-top" src="image/Phomme/Jolie.Jolie/Complet/N12.jpg" alt="Produit 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Complet Marron bicolor</h5>
+                        <p class="card-text">Prix : 6000 franc CFA</p>
+                            <button class="btn btn-primary add-to-cart" data-title="Complet Marron bicolor" data-price="6000">Ajouter au panier</button> 
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+                <div class="card promo" style="width: 320px; margin-left: auto; margin-right: auto;">
+                    <img class="card-img-top" src="image/Phomme/Jolie.Jolie/Complet/N13.jpg" alt="Produit 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Complet Gris N2</h5>
+                        <p class="card-text">Prix : 6000 franc CFA</p>
+                        <button class="btn btn-primary add-to-cart" data-title="Complet Gris N2" data-price="6000">Ajouter au panier</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+                <div class="card promo" style="width: 320px; margin-left: auto; margin-right: auto;">
+                    <img class="card-img-top" src="image/Phomme/Jolie.Jolie/Complet/N14.jpg" alt="Produit 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Complet Blanc & Noir N2</h5>
+                        <p class="card-text">Prix : 6000 franc CFA</p>
+                            <button class="btn btn-primary add-to-cart" data-title="Complet Blanc & Noir N2" data-price="6000">Ajouter au panier</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+                <div class="card promo" style="width: 320px; margin-left: auto; margin-right: auto;">
+                    <img class="card-img-top" src="image/Phomme/Jolie.Jolie/Complet/N15.jpg" alt="Produit 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Complet Bleu & Blanc N2</h5>
+                        <p class="card-text">Prix : 6000 franc CFA</p>
+                        <button class="btn btn-primary add-to-cart" data-title="Complet Bleu & Blanc N2" data-price="6000">Ajouter au panier</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+                <div class="card promo" style="width: 320px; margin-left: auto; margin-right: auto;">
+                    <img class="card-img-top" src="image/Phomme/Jolie.Jolie/Complet/N16.jpg" alt="Produit 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Complet Blanc & Vert N1</h5>
+                        <p class="card-text">Prix : 6000 franc CFA</p>
+                            <button class="btn btn-primary add-to-cart" data-title="Complet Blanc & Vert N1" data-price="6000">Ajouter au panier</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+                <div class="card promo" style="width: 320px; margin-left: auto; margin-right: auto;">
+                    <img class="card-img-top" src="image/Phomme/Jolie.Jolie/Complet/N17.jpg" alt="Produit 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Complet Gris & Blanc N1</h5>
+                        <p class="card-text">Prix : 6000 franc CFA</p>
+                            <button class="btn btn-primary add-to-cart" data-title="Complet Gris & Blanc N1" data-price="6000">Ajouter au panier</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+                <div class="card promo" style="width: 320px; margin-left: auto; margin-right: auto;">
+                    <img class="card-img-top" src="image/Phomme/Jolie.Jolie/Complet/N18.jpg" alt="Produit 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Complet Vert & Beige N1</h5>
+                        <p class="card-text">Prix : 6000 franc CFA</p>
+                        <button class="btn btn-primary add-to-cart" data-title="Complet Vert & Beige N1" data-price="6000">Ajouter au panier</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+                <div class="card promo" style="width: 320px; margin-left: auto; margin-right: auto;">
+                    <img class="card-img-top" src="image/Phomme/Jolie.Jolie/Complet/N19.jpg" alt="Produit 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Complet Noir & Blanc N1</h5>
+                        <p class="card-text">Prix : 6000 franc CFA</p>
+                            <button class="btn btn-primary add-to-cart" data-title="Complet Noir & Blanc N1" data-price="6000">Ajouter au panier</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+                <div class="card promo" style="width: 320px; margin-left: auto; margin-right: auto;">
+                    <img class="card-img-top" src="image/Phomme/Jolie.Jolie/Complet/N20.jpg" alt="Produit 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Complet Gris sombre</h5>
+                        <p class="card-text">Prix : 6000 franc CFA</p>
+                            <button class="btn btn-primary add-to-cart" data-title="Complet Gris sombre" data-price="6000">Ajouter au panier</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+                <div class="card promo" style="width: 320px; margin-left: auto; margin-right: auto;">
+                    <img class="card-img-top" src="image/Phomme/Jolie.Jolie/Complet/N21.jpg" alt="Produit 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Complet Bleu N1</h5>
+                        <p class="card-text">Prix : 6000 franc CFA</p>
+                            <button class="btn btn-primary add-to-cart" data-title="Complet Bleu N1" data-price="6000">Ajouter au panier</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+                <div class="card promo" style="width: 320px; margin-left: auto; margin-right: auto;">
+                    <img class="card-img-top" src="image/Phomme/Jolie.Jolie/Complet/N22.jpg" alt="Produit 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Complet Gris N3</h5>
+                        <p class="card-text">Prix : 6000 franc CFA</p>
+                        <button class="btn btn-primary add-to-cart" data-title="Complet Bleu & Blanc" data-price="6000">Ajouter au panier</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+                <div class="card promo" style="width: 320px; margin-left: auto; margin-right: auto;">
+                    <img class="card-img-top" src="image/Phomme/Jolie.Jolie/Complet/N23.jpg" alt="Produit 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Complet Jaune</h5>
+                        <p class="card-text">Prix : 6000 franc CFA</p>
+                            <button class="btn btn-primary add-to-cart" data-title="Complet Jaune" data-price="6000">Ajouter au panier</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+                <div class="card promo" style="width: 320px; margin-left: auto; margin-right: auto;">
+                    <img class="card-img-top" src="image/Phomme/Jolie.Jolie/Complet/N24.jpg" alt="Produit 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Complet Rouge & Noir</h5>
+                        <p class="card-text">Prix : 6000 franc CFA</p>
+                            <button class="btn btn-primary add-to-cart" data-title="Complet Rouge & Noir" data-price="6000">Ajouter au panier</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+                <div class="card promo" style="width: 320px; margin-left: auto; margin-right: auto;">
+                    <img class="card-img-top" src="image/Phomme/Jolie.Jolie/Complet/N25.jpg" alt="Produit 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Complet Gris & Blanc N2</h5>
+                        <p class="card-text">Prix : 6000 franc CFA</p>
+                            <button class="btn btn-primary add-to-cart" data-title="Complet Bleu & Blanc N2" data-price="6000">Ajouter au panier</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+                <div class="card promo" style="width: 320px; margin-left: auto; margin-right: auto;">
+                    <img class="card-img-top" src="image/Phomme/Jolie.Jolie/Complet/N26.jpg" alt="Produit 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Complet Beige bicolor</h5>
+                        <p class="card-text">Prix : 6000 franc CFA</p>
+                        <button class="btn btn-primary add-to-cart" data-title="Complet Bleu & Blanc" data-price="6000">Ajouter au panier</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+                <div class="card promo" style="width: 320px; margin-left: auto; margin-right: auto;">
+                    <img class="card-img-top" src="image/Phomme/Jolie.Jolie/Complet/N27.jpg" alt="Produit 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Complet Noir & Blanc N2</h5>
+                        <p class="card-text">Prix : 6000 franc CFA</p>
+                        <button class="btn btn-primary add-to-cart" data-title="Complet Bleu & Blanc N2" data-price="6000">Ajouter au panier</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+                <div class="card promo" style="width: 320px; margin-left: auto; margin-right: auto;">
+                    <img class="card-img-top" src="image/Phomme/Jolie.Jolie/Complet/N28.jpg" alt="Produit 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Complet Noir</h5>
+                        <p class="card-text">Prix : 6000 franc CFA</p>
+                        <button class="btn btn-primary add-to-cart" data-title="Complet Noir N2" data-price="6000">Ajouter au panier</button>                    
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+                <div class="card promo" style="width: 320px; margin-left: auto; margin-right: auto;">
+                    <img class="card-img-top" src="image/Phomme/Jolie.Jolie/Complet/N29.jpg" alt="Produit 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Complet Bleu & Blanc & Noir</h5>
+                        <p class="card-text">Prix : 6000 franc CFA</p>
+                            <button class="btn btn-primary add-to-cart" data-title="Complet Bleu & Blanc & Noir" data-price="6000">Ajouter au panier</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+                <div class="card promo" style="width: 320px; margin-left: auto; margin-right: auto;">
+                    <img class="card-img-top" src="image/Phomme/Jolie.Jolie/Complet/N30.jpg" alt="Produit 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Complet Gris clair N1</h5>
+                        <p class="card-text">Prix : 6000 franc CFA</p>
+                            <button class="btn btn-primary add-to-cart" data-title="Complet Gris clair N1" data-price="6000">Ajouter au panier</button>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cart-section">
+        <h2>Panier</h2>
+        <div id="cart-items"></div>
+        <p class="cart-total">Total: <span id="cart-total">0</span> franc CFA</p>
+        <a href="#" id="checkout-button" class="btn btn-primary">
+            envoyer votre commande
+        </a>
+
+        <a href="tel:+22789609594" class="btn btn-primary"> <!-- Remplacez +22789182428 par le numéro de téléphone de votre site -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="24" height="24">
+                <path fill="#00ffcc" d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/>
+            </svg>
+            Appelez nous
+        </a>
+    </section>
+</body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var searchInput = document.getElementById('searchInput');
+        var cartItemsContainer = document.getElementById('cart-items');
+        var cartTotalElement = document.getElementById('cart-total');
+        var checkoutButton = document.getElementById('checkout-button');
+        var cart = [];
+        var total = 0;
+
+        function updateCart() {
+            cartItemsContainer.innerHTML = '';
+            cart.forEach(function(item, index) {
+                var itemElement = document.createElement('div');
+                itemElement.className = 'cart-item';
+                
+                var itemTitle = document.createElement('h6');
+                itemTitle.textContent = item.title;
+                
+                var itemQuantity = document.createElement('input');
+                itemQuantity.type = 'number';
+                itemQuantity.value = item.quantity;
+                itemQuantity.min = '1';
+                itemQuantity.className = 'item-quantity';
+                itemQuantity.addEventListener('change', function() {
+                    item.quantity = parseInt(this.value);
+                    updateTotal();
+                });
+
+                var itemPrice = document.createElement('span');
+                itemPrice.textContent = item.price + ' franc CFA';
+
+                var removeButton = document.createElement('span');
+                removeButton.className = 'item-remove';
+                removeButton.textContent = 'Supprimer';
+                removeButton.addEventListener('click', function() {
+                    cart.splice(index, 1);
+                    updateCart();
+                    updateTotal();
+                });
+
+                itemElement.appendChild(itemTitle);
+                itemElement.appendChild(itemQuantity);
+                itemElement.appendChild(itemPrice);
+                itemElement.appendChild(removeButton);
+                cartItemsContainer.appendChild(itemElement);
+            });
+
+            updateTotal();
+        }
+
+        function updateTotal() {
+            total = cart.reduce(function(sum, item) {
+                return sum + (item.price * item.quantity);
+            }, 0);
+
+            cartTotalElement.textContent = total;
+        }
+
+        document.querySelectorAll('.add-to-cart').forEach(function(button) {
+            button.addEventListener('click', function() {
+                var title = this.getAttribute('data-title');
+                var price = parseInt(this.getAttribute('data-price'));
+                
+                var existingItem = cart.find(function(item) {
+                    return item.title === title;
+                });
+
+                if (existingItem) {
+                    existingItem.quantity++;
+                } else {
+                    cart.push({ title: title, price: price, quantity: 1 });
+                }
+
+                updateCart();
+            });
+        });
+
+        searchInput.addEventListener('input', function () {
+            var searchText = searchInput.value.toLowerCase();
+            var menuItems = document.querySelectorAll('.featured-products .card.promo');
+
+            menuItems.forEach(function (menuItem) {
+                var productTitle = menuItem.querySelector('h5').textContent.toLowerCase();
+                var isVisible = productTitle.includes(searchText);
+
+                menuItem.style.display = isVisible ? 'block' : 'none';
+            });
+        });
+
+        checkoutButton.addEventListener('click', function() {
+            var email = 'innovateon70@gmail.com'; // L'adresse email du vendeur
+            var subject = 'Commande';
+            var body = 'Bonjour Amadou,\n\nJe souhaite passer la commande suivante :\n\n';
+
+            cart.forEach(function(item) {
+                body += '- ' + item.title + ' : ' + item.price + ' franc CFA x ' + item.quantity + '\n';
+            });
+
+            body += '\nTotal : ' + total + ' franc CFA\n\nMerci.';
+
+            var mailtoLink = 'mailto:' + email + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+            window.location.href = mailtoLink;
+        });
+    });
+</script>
+</html> 

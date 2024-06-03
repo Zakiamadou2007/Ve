@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commande Africain</title>
+    <link rel="stylesheet" href="style.Home.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<style>
+    /* Light animation */
+.background-lights {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    background: linear-gradient(-45deg, rgb(66, 141, 255), rgb(241, 241, 241), rgb(16, 255, 243));
+    background-size: 400% 400%;
+    animation: backgroundAnimation 10s ease infinite;
+}
+@keyframes backgroundAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+</style>
+<body>
+    <header>
+        <h2>Bienvenue à Niger Market</h2>
+    </header>
+        
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Bienvenue sur B Jolie Jolie</h2>
+            <p>Découvrez notre large sélection de produits africains authentiques.</p>
+            <a href="B.Jolie.html" class="btn btn-primary">Explorer</a>
+        </div>
+        
+    </section>
+
+    <section class="featured-products">
+        <div class="background-lights"></div>
+        <h2>Produits en Promotion</h2>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4"></div>
+            </div>
+            <div class="col-md-4"></div>
+                <div class="card promo" style="width: 320px; margin-left: auto; margin-right: auto;">
+                    <span class="promo-label" style="background-color: red; color: black;">PROMO</span> <!-- Étiquette Promo -->
+                    <img class="card-img-top" src="image/Phomme/Jolie.Jolie/Complet/N2.jpg" alt="Produit 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Complet Noir N1</h5>
+                            <p class="card-text">Prix : <del>6.000 CFA</del> <span class="promo2">5.000 CFA</span></p>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+                <div class="card promo" style="width: 320px; margin-left: auto; margin-right: auto;">
+                    <span class="promo-label" style="background-color: red; color: black;">PROMO</span> <!-- Étiquette Promo -->
+                    <img class="card-img-top" src="image/Phomme/Jolie.Jolie/Complet/N6.jpg" alt="Produit 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Complet Vert tricolor</h5>
+                        <p class="card-text">Prix : <del>6.000 CFA</del> <span class="promo2">5.000 CFA</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Commande Africain. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="animation.js"></script>
+</body>
+</html>
